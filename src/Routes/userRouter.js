@@ -1,12 +1,12 @@
 import { Router } from "express";
+import * as userController from "../Controllers/userController.js";
 
 const router = Router();
 
 router.post(
     "/create_user",
-    async (req, res) => {
-        res.json({ message: "User created successfully" });
-    }
+    userController.createUser
 );
+
 
 export default router;

@@ -8,5 +8,9 @@ router.post(
     userController.createUser
 );
 
+router.get(
+    '/get_all_users',
+    userController.getAllUsers
+);
 
 export default router;

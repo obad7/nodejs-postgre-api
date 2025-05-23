@@ -19,3 +19,20 @@ export const createUser = async (req, res) => {
         });
     }
 };
+
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await userService.getAllUsers();
+
+        res.status(200).json({
+            success: true,
+            users,
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error retrieving users',
+        });
+    }
+};

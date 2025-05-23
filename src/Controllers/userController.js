@@ -12,10 +12,9 @@ export const createUser = async (req, res) => {
             user,
         });
     } catch (err) {
-        console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Error creating user',
+            message: err.message,
         });
     }
 };
@@ -29,10 +28,9 @@ export const getAllUsers = async (req, res) => {
             users,
         });
     } catch (err) {
-        console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Error retrieving users',
+            message: err.message,
         });
     }
 };

@@ -6,6 +6,13 @@ export const bootstrap = async (app, express) => {
 
     app.use("/user", userRouter);
 
+    app.use((err, req, res, next) => {
+        res.status(err.cause || 500).json({
+            success: false,
+            message: err.message || "Internal Server Error",
+        });
+    });
+
 };
 
 export default bootstrap;
